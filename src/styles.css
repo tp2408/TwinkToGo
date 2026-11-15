@@ -1,0 +1,52 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, system-ui, sans-serif;
+  color: #f4f6ff;
+  background: #111527;
+  --panel: #1b2238;
+  --border: #465571;
+  --accent: #c3ff82;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem max(1rem, calc((100% - 1040px) / 2));
+  border-bottom: 1px solid var(--border);
+}
+nav { display: flex; gap: .5rem; }
+main { max-width: 1072px; margin: 0 auto; padding: 3.8rem 1rem; min-height: 65vh; }
+h1 { font-size: clamp(2.4rem, 7vw, 4.8rem); letter-spacing: -.05em; margin: 0 0 1.2rem; }
+h2 { margin: 2rem 0 .75rem; }
+button, input, select, .primary { font: inherit; border-radius: .6rem; padding: .72rem .85rem; }
+button, input, select { border: 1px solid var(--border); background: #111527; color: inherit; }
+button, a { cursor: pointer; }
+button:disabled { opacity: .42; cursor: default; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.brand { padding: .25rem 0; border: 0; font-size: 1.25rem; font-weight: 800; color: var(--accent); }
+.panel { background: var(--panel); border: 1px solid var(--border); border-radius: 1rem; padding: 1rem; }
+.search { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: .75rem; align-items: end; }
+label { display: grid; gap: .45rem; min-width: 0; }
+label > input, label > select { width: 100%; }
+.primary { display: inline-block; text-decoration: none; background: var(--accent); color: #13220a; border: 1px solid transparent; font-weight: 700; }
+.result { margin-bottom: .75rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+small { display: block; margin-top: .25rem; color: #c4cee2; }
+.stack { display: grid; gap: 1rem; }
+.narrow { max-width: 510px; }
+.seats { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: .35rem; }
+.seats button { padding: .55rem .15rem; }
+.seats button:nth-child(6n + 3) { margin-right: .35rem; }
+.seats button[aria-pressed="true"] { background: var(--accent); color: #13220a; font-weight: 700; }
+.message { color: var(--accent); }
+.error { color: #ffadaf; }
+footer { text-align: center; padding: 1.5rem; color: #c4cee2; border-top: 1px solid var(--border); }
+@media (max-width: 800px) {
+  .search { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 440px) {
+  .search { grid-template-columns: 1fr; }
+  main { padding-top: 2rem; }
+}
